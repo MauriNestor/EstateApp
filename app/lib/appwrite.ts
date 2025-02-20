@@ -5,7 +5,7 @@ import { openAuthSessionAsync } from 'expo-web-browser';
 export const config = {
     platform: 'com.jsm.restate',
     endpoint: process.env.EXPO_PUBLIC_APPWRITE_ENDPOINT,
-    projectId: process.env.EXPO_PIBLIC_APPWRITE_PROJECT_ID,
+    projectId: process.env.EXPO_PUBLIC_APPWRITE_PROJECT_ID,
 }
 export const client = new Client();
 
@@ -56,7 +56,7 @@ export async function logout(){
         return false;
     }
 }
-export async function getUser(){
+export async function getCurrentUser(){
     try {
         const user = await account.get();
         if(user.$id){
