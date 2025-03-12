@@ -19,6 +19,7 @@ import { Card, FeatureCard } from "@/components/Cards";
 import { useAppwrite } from "@/app/lib/useAppwrite";
 import { useGlobalContext } from "@/app/lib/global-provider";
 import { getLatestProperties, getProperties } from "@/app/lib/appwrite";
+import NOResults from "@/components/NOResults";
 
 const Home = () => {
   const { user } = useGlobalContext();
@@ -70,7 +71,7 @@ const Home = () => {
           loading ? (
             <ActivityIndicator size="large" className="text-primary-300 mt-5" />
           ) : (
-            <ActivityIndicator size="large" className="text-primary-300 mt-5" />
+            <NOResults />
           )
         }
         ListHeaderComponent={() => (
@@ -111,7 +112,7 @@ const Home = () => {
               {latestPropertiesLoading ? (
                 <ActivityIndicator size="large" className="text-primary-300" />
               ) : !latestProperties || latestProperties.length === 0 ? (
-                <ActivityIndicator size="large" className="text-primary-300" />
+                <NOResults />
               ) : (
                 <FlatList
                   data={latestProperties}
@@ -128,8 +129,6 @@ const Home = () => {
                 />
               )}
             </View>
-
-            {/* <Button title="seed" onPress={seed} /> */}
 
             <View className="mt-5">
               <View className="flex flex-row items-center justify-between">
